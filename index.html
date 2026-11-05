@@ -59,11 +59,11 @@
 
         /* Styling speziell für SVG Logos */
         .logo {
-            width: 250px;       /* Hier kannst du die Wunschbreite einstellen */
-            max-width: 100%;    /* Verhindert, dass das Logo auf kleinen Bildschirmen herausbricht */
-            height: auto;       /* Behält das richtige Seitenverhältnis bei */
+            width: 250px;       
+            max-width: 80%;    /* Auf Handys nimmt das Logo maximal 80% der Bildschirmbreite ein */
+            height: auto;       
             display: block;
-            margin-bottom: 25px; /* Abstand zum Text darunter */
+            margin-bottom: 25px; 
         }
 
         .content h1 {
@@ -73,22 +73,68 @@
 
         .content p {
             font-size: 1.2rem;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .btn {
+        /* Gemeinsame Basis-Klasse für beide Buttons */
+        .btn, .btn1 {
             display: inline-block;
-            padding: 12px 24px;
-            background: #eed563;
-            color: #000000;
+            padding: 14px 28px; /* Größeres Klickfeld für Touch-Bedienung */
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.1s;
+            width: auto;
+            -webkit-tap-highlight-color: transparent; /* Entfernt blauen Rahmen auf Mobilgeräten */
         }
 
-        .btn:hover {
+        .btn {
+            background: #eed563;
+            color: #000000;
+        }
+
+        .btn1 {
+            background: #eed563;
+            color: #794d4d;
+        }
+
+        .btn:hover, .btn1:hover {
             background: #dddddd;
+        }
+
+        /* 📱 SPEZIELLE HANDY-OPTIMIERUNG (Bildschirme schmaler als 600px) */
+        @media (max-width: 600px) {
+            .content {
+                padding: 15px;
+            }
+
+            .logo {
+                width: 200px; /* Leicht kleineres Logo auf Smartphones */
+                margin-bottom: 15px;
+            }
+
+            .content h1 {
+                font-size: 2.2rem; /* Deutlich kleinere Überschrift, damit sie nicht umbricht */
+                margin-bottom: 8px;
+            }
+
+            .content p {
+                font-size: 1.05rem;
+                margin-bottom: 25px;
+            }
+
+            /* Die Buttons werden untereinander gestapelt und gestreckt */
+            .btn, .btn1 {
+                display: block;
+                width: 100%;      /* Buttons nutzen die volle Breite */
+                max-width: 280px; /* Werden auf großen Handys aber nicht unendlich breit */
+                margin: 0 auto 12px auto; /* Zentriert die Buttons und schafft Abstand nach unten */
+                text-align: center;
+            }
+
+            .btn1 {
+                margin-bottom: 0; /* Letzter Button braucht keinen Abstand nach unten */
+            }
         }
     </style>
 </head>
@@ -112,7 +158,7 @@
         <h1>ImbissBoss Dierdorf</h1>
         <p>Hier schmeckt es am besten.</p>
         <a href="menue.html" class="btn">Unsere Menüs</a>
-        <a href="#" class="btn">Tagesgerichte</a>
+        <a href="tagesgerichte.html" class="btn1">Tagesgerichte</a>
     </div>
 
 </body>
