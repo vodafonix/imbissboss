@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagesgericht</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Das Video fixiert im Hintergrund ausrichten */
+        .bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* Dunkles Overlay für die Lesbarkeit */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Etwas dunkler für die Speisekarte */
+            z-index: -1;
+        }
+
+        /* Haupt-Container zentriert die Karte auf dem Bildschirm */
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Die Speisekarte (Milchglas-Effekt) */
+        .menu-card {
+            background: rgba(255, 255, 255, 0.08); /* Leicht transparenter weißer Hintergrund */
+            backdrop-filter: blur(10px); /* Moderner Unschärfe-Effekt im Hintergrund */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Logo oder Restaurant-Name zentrieren */
+        .menu-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .menu-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .menu-header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Eine Kategorie-Überschrift (z.B. Hauptgerichte) */
+        .category-title {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 5px;
+            margin: 25px 0 15px 0;
+            letter-spacing: 1px;
+            color: #f1c40f; /* Edler Gold/Gelb-Ton für Kategorien */
+        }
+
+        /* Die magische Ausrichtung: Grid sorgt dafür, dass Preise perfekt untereinander stehen */
+        .menu-item {
+            display: grid;
+            grid-template-columns: 1fr auto; /* Gericht nimmt den Platz links, Preis steht rechts */
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: baseline;
+        }
+
+        .item-details h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .item-details p {
+            font-size: 0.95rem;
+            color: #cccccc;
+            margin-top: 3px;
+        }
+
+        /* Der Preis schließt rechts perfekt ab */
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            white-space: nowrap; /* Verhindert Zeilenumbruch beim Preis */
+            color: #f1c40f;
+        }
+
+        /* Zurück-Button Styling */
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Das Hintergrundvideo läuft auch hier weiter -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="imbissboss.mp4" type="video/mp4">
+        Dein Browser unterstützt das Video-Element nicht.
+    </video>
+
+    <!-- Dunkles Overlay -->
+    <div class="overlay"></div>
+
+    <div class="menu-container">
+        <div class="menu-card">
+            
+            <div class="menu-header">
+                <!-- Dein SVG Logo wird hier wiederverwendet -->
+                <img src="ib-final-web.svg" alt="Logo" class="menu-logo">
+                <h1>Unsere Speisen</h1>
+            </div>
+
+            <!-- KATEGORIE 1 -->
+            <div class="category-title">Montag</div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Bohnensuppe </h3>
+                    <p>Bohnensuppe </p>
+                </div>
+                <div class="item-price">4,50 €</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Schnitzel Pommes Mayo</h3>
+                    <p>Rindersuppe </p>
+                    <p>Serviert mit Remoulade</p>
+                </div>
+                <div class="item-price">7,90 €</div>
+            </div>
+<div class="menu-item">
+                <div class="item-details">
+                    <h3>Pommes Maria</h3>
+                    <p>Mit Zwibeln Mayo Ketchup</p>
+                    <p>Serviert mit taziki</p>
+                </div>
+                <div class="item-price">7,90 €</div>
+            </div>
+            <!-- KATEGORIE 2 -->
+            <div class="category-title">Dienstag</div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Rindersuppe</h3>
+                    <p>Schweinefleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Linsensuppe</h3>
+                    <p>Rindfleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+<div class="menu-item">
+                <div class="item-details">
+                    <h3>Käse Wurst</h3>
+                    <p>Käse Wurst</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Maria Spezial Wurst</h3>
+                    <p>Frische Tagliatelle in cremiger Trüffelsauce mit Parmesan</p>
+                </div>
+                <div class="item-price">7,90 €</div>
+            </div>
+<!-- KATEGORIE 2 -->
+            <div class="category-title">Mittwoch</div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Texassuppe</h3>
+                    <p>Schweinefleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros BOX</h3>
+                    <p>Rindfleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+<div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros Spezial</h3>
+                    <p>Käse Wurst</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Maria Spezial Gyros</h3>
+                    <p>Frische Tagliatelle in cremiger Trüffelsauce mit Parmesan</p>
+                </div>
+                <div class="item-price">7,90 €</div>
+            </div>
+           <!-- KATEGORIE 4 -->
+            <div class="category-title">Donnerstag</div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Hexusuppe</h3>
+                    <p>Schweinefleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros BOX</h3>
+                    <p>Rindfleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+<div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros Spezial</h3>
+                    <p>Käse Wurst</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Maria Spezial Gyros</h3>
+                    <p>Frische Tagliatelle in cremiger Trüffelsauce mit Parmesan</p>
+                </div>
+                <div class="item-price">7,90 €</div>
+            </div> 
+            <!-- KATEGORIE 5 -->
+            <div class="category-title">Freitag</div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Bauchsuppe</h3>
+                    <p>Schweinefleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros BOX</h3>
+                    <p>Rindfleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+               <!-- KATEGORIE 5 -->
+            <div class="category-title">Samstag</div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Bauchsuppe</h3>
+                    <p>Schweinefleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros BOX</h3>
+                    <p>Rindfleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <!-- KATEGORIE 5 -->
+            <div class="category-title">Sonntag</div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Bauchsuppe</h3>
+                    <p>Schweinefleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros BOX</h3>
+                    <p>Rindfleisch in curryter Sosse</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div> 
+<div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros Spezial</h3>
+                    <p>Käse Wurst</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Maria Spezial Gyros</h3>
+                    <p>Frische Tagliatelle in cremiger Trüffelsauce mit Parmesan</p>
+                </div>
+                <div class="item-price">7,90 €</div>
+            </div> 
+            <!-- ZURÜCK BUTTON -->
+            <center>
+                <a href="index.html" class="back-btn">← Zurück zur Startseite</a>
+            </center>
+
+        </div>
+    </div>
+
+</body>
+</html>

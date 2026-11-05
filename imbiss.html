@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video-Hintergrund Webseite mit SVG Logo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Das Video fixiert im Hintergrund ausrichten */
+        .bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* Dunkles Overlay, damit Text besser lesbar ist */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        /* Inhalts-Container zentrieren */
+        .content {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        /* Styling speziell für SVG Logos */
+        .logo {
+            width: 250px;       /* Hier kannst du die Wunschbreite einstellen */
+            max-width: 100%;    /* Verhindert, dass das Logo auf kleinen Bildschirmen herausbricht */
+            height: auto;       /* Behält das richtige Seitenverhältnis bei */
+            display: block;
+            margin-bottom: 25px; /* Abstand zum Text darunter */
+        }
+
+        .content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #eed563;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Das Hintergrundvideo -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="imbissboss.mp4" type="video/mp4">
+        Dein Browser unterstützt das Video-Element nicht.
+    </video>
+
+    <!-- Ein dunkles Overlay für bessere Lesbarkeit -->
+    <div class="overlay"></div>
+
+    <!-- Der Inhalt deiner Webseite -->
+    <div class="content">
+        
+        <!-- DEIN SVG LOGO -->
+        <img src="ib-final-web.svg" alt="Logo" class="logo">
+
+        <h1>ImbissBoss Dierdorf</h1>
+        <p>Hier schmeckt es am besten.</p>
+        <a href="menue.html" class="btn">Unsere Menüs</a>
+        <a href="tagesgerichte.html" class="btn">Tagesgerichte</a>
+    </div>
+
+</body>
+</html>
