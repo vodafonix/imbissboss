@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt & Öffnungszeiten - Imbiss Boss</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Hintergrundvideo fixiert ausrichten */
+        .bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* Dunkles Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        /* Haupt-Container zentriert die Karte */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Die Kontaktkarte (Milchglas-Effekt) */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 750px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        .contact-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .contact-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .contact-header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Zweispaltiges Layout für größere Bildschirme */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Überschriften für Sektionen */
+        .section-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            color: #f1c40f; /* Edler Gold/Gelb-Ton */
+        }
+
+        /* Info-Texte */
+        .info-block {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .info-block p {
+            color: #cccccc;
+        }
+
+        .info-block strong {
+            color: white;
+        }
+
+        /* Formular Styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #cccccc;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #f1c40f;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        /* Button-Group */
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .btn-submit {
+            background: #f1c40f;
+            border: 1px solid #f1c40f;
+            color: black;
+        }
+
+        .btn-submit:hover {
+            background: transparent;
+            color: #f1c40f;
+        }
+
+        .btn-back {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Responsive Anpassung für Handys */
+        @media (max-width: 650px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .button-group {
+                flex-direction: column-reverse;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hintergrundvideo bleibt identisch -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="imbissboss.mp4" type="video/mp4">
+        Dein Browser unterstützt das Video-Element nicht.
+    </video>
+
+    <!-- Dunkles Overlay -->
+    <div class="overlay"></div>
+
+    <div class="contact-container">
+        <div class="contact-card">
+            
+            <div class="contact-header">
+                <img src="ib-final-web.svg" alt="Logo" class="contact-logo">
+                <h1>Kontakt & Öffnungszeiten</h1>
+            </div>
+
+            <div class="contact-grid">
+                
+                <!-- LINKE SPALTE: Infos & Zeiten -->
+                <div>
+                    <div class="section-title">Öffnungszeiten</div>
+                    <div class="info-block">
+                        <p><strong>Montag - Freitag:</strong><br>10:00 - 20:00 Uhr</p>
+                        <br>
+                        <p><strong>Samstag </strong><br>10:00 - 20:00 Uhr</p>
+                        <br>
+                        <p><strong>Sonntag & Feiertage:</strong><br>Ruhetag</p>
+                    </div>
+
+                    <div class="section-title">Unser Standort</div>
+                    <div class="info-block">
+                        <p><strong>Imbiss Boss</strong></p>
+                        <p>Königsbergerstr.24 bei Netto</p>
+                        <p>56269 Dierdorf</p>
+                        <br>
+                        <p><strong>Telefon:</strong> 01234 / 567890</p>
+                        <p><strong>E-Mail:</strong> info@imbissboss.de</p>
+                    </div>
+                </div>
+
+                <!-- RECHTE SPALTE: Kontaktformular -->
+                <div>
+                    <div class="section-title">Schreib uns</div>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Dein Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail Adresse</label>
+                            <input type="email" id="email" name="email" required placeholder="Deine E-Mail">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Deine Nachricht (z.B. Vorbestellungen)</label>
+                            <textarea id="message" name="message" required placeholder="Wie können wir dir helfen?"></textarea>
+                        </div>
+                        
+                        <div class="button-group">
+                            <a href="menue.html" class="btn btn-back">Zur Speisekarte</a>
+                            <button type="submit" class="btn btn-submit">Senden</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

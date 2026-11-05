@@ -138,6 +138,76 @@
             background: white;
             color: black;
         }
+        /* Die separate Extra-Box für Allergene & Zusatzstoffe */
+.info-box {
+    background: rgba(0, 0, 0, 0.4); /* Dunkler Kontrast zur Hauptkarte */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px 30px;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    font-size: 0.85rem;
+    color: #dddddd;
+    line-height: 1.5;
+    margin-top: 25px; /* Abstand zur Speisekarte */
+}
+
+.info-box h4 {
+    color: #f1c40f;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 5px;
+}
+
+.info-section {
+    margin-bottom: 12px;
+}
+
+.info-section:last-child {
+    margin-bottom: 0;
+}
+
+.info-title {
+    font-weight: bold;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 4px;
+}
+/* Kontakt-Button Styling */
+.contact-btn {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 15px; /* Abstand zum Zurück-Button, falls sie nebeneinander stehen */
+    padding: 10px 20px;
+    border: 1px solid #f1c40f;
+    color: #f1c40f;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.contact-btn:hover {
+    background: #f1c40f;
+    color: black;
+}
+
+/* Smartphone-Optimierung: Buttons untereinander stapeln, wenn der Bildschirm klein ist */
+@media (max-width: 480px) {
+    .back-btn, .contact-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}
     </style>
 </head>
 <body>
@@ -166,94 +236,190 @@
             <div class="menu-item">
                 <div class="item-details">
                     <h3>Pommes </h3>
-                    <p>Mit frischem Basilikum und hausgemachten Croutons</p>
+                    <p>Pommes Frites</p>
                 </div>
-                <div class="item-price">4,50 €</div>
+                <div class="item-price">4,00 €</div>
             </div>
 
             <div class="menu-item">
                 <div class="item-details">
                     <h3>Pommes Spezial</h3>
-                    <p>Mit Zwibeln Mayo Ketchup</p>
-                    <p>Serviert mit Remoulade</p>
+                    <p>Mit Zwiebeln Mayo & Ketchup</p>
+                    
                 </div>
-                <div class="item-price">7,90 €</div>
+                <div class="item-price">5,00 €</div>
             </div>
 <div class="menu-item">
                 <div class="item-details">
                     <h3>Pommes Maria</h3>
-                    <p>Mit Zwibeln Mayo Ketchup</p>
-                    <p>Serviert mit taziki</p>
+                    <p>Pommes mit Zwiebeln, Ketchup & Mayo</p>
+                    
                 </div>
-                <div class="item-price">7,90 €</div>
+                <div class="item-price">5,00 €</div>
             </div>
             <!-- KATEGORIE 2 -->
             <div class="category-title">Wurst</div>
 
             <div class="menu-item">
                 <div class="item-details">
-                    <h3>Curry Wurst</h3>
-                    <p>Schweinefleisch in curryter Sosse</p>
+                    <h3>Bratwurst</h3>
+                    <p>Schweinefleisch </p>
                 </div>
-                <div class="item-price">5,50 €</div>
+                <div class="item-price">4,00 €</div>
             </div>
             <div class="menu-item">
                 <div class="item-details">
                     <h3>Rinds Curry Wurst</h3>
-                    <p>Rindfleisch in curryter Sosse</p>
+                    <p>100 % Rinderfleisch</p>
                 </div>
-                <div class="item-price">5,50 €</div>
+                <div class="item-price">4,50 €</div>
             </div>
 <div class="menu-item">
                 <div class="item-details">
-                    <h3>Käse Wurst</h3>
-                    <p>Käse Wurst</p>
+                    <h3>Käsewurst</h3>
+                    <p>Schweinefleisch gefüllt mit Käse</p>
                 </div>
-                <div class="item-price">5,50 €</div>
+                <div class="item-price">4,50 €</div>
             </div>
             <div class="menu-item">
                 <div class="item-details">
-                    <h3>Maria Spezial Wurst</h3>
-                    <p>Frische Tagliatelle in cremiger Trüffelsauce mit Parmesan</p>
+                    <h3>Currywurst</h3>
+                    <p>Brat oder Rinds,Käse Wurst in cremiger Currysauce</p>
                 </div>
-                <div class="item-price">7,90 €</div>
+                <div class="item-price">4,50 €</div>
             </div>
-<!-- KATEGORIE 2 -->
-            <div class="category-title">Gyros</div>
+<!-- KATEGORIE 3 -->
+            <div class="category-title">Fleischgerichte</div>
 
             <div class="menu-item">
                 <div class="item-details">
-                    <h3>Gyros Pommes und taziki</h3>
-                    <p>Schweinefleisch in curryter Sosse</p>
+                    <h3>Frikadelle</h3>
+                    <p>Hausgemacht im Brötchen</p>
                 </div>
-                <div class="item-price">5,50 €</div>
+                <div class="item-price">4,00 €</div>
             </div>
             <div class="menu-item">
                 <div class="item-details">
-                    <h3>Gyros BOX</h3>
-                    <p>Rindfleisch in curryter Sosse</p>
+                    <h3>Spießbraten</h3>
+                    <p>im Brötchen</p>
                 </div>
-                <div class="item-price">5,50 €</div>
+                <div class="item-price">5,00 €</div>
             </div>
 <div class="menu-item">
                 <div class="item-details">
-                    <h3>Gyros Spezial</h3>
-                    <p>Käse Wurst</p>
+                    <h3>Nierengulasch</h3>
+                    <p>Schweinenieren / Fleisch, Zwiebeln & Brötchen</p>
+                </div>
+                <div class="item-price">5,00 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Kid´s Menü</h3>
+                    <p>6 Chicken Nuggets, Pommes Ketchup & Mayo</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <!-- KATEGORIE 4 -->
+            <div class="category-title">Gyrosgerichte</div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros</h3>
+                    <p>Mit Zwiebeln & Tzatziki</p>
                 </div>
                 <div class="item-price">5,50 €</div>
             </div>
             <div class="menu-item">
                 <div class="item-details">
-                    <h3>Maria Spezial Gyros</h3>
-                    <p>Frische Tagliatelle in cremiger Trüffelsauce mit Parmesan</p>
+                    <h3>Gyros Box</h3>
+                    <p>Gyros, Zwiebeln, Pommes & Tzatziki</p>
                 </div>
-                <div class="item-price">7,90 €</div>
+                <div class="item-price">6,50 €</div>
             </div>
-            <!-- ZURÜCK BUTTON -->
-            <center>
-                <a href="index.html" class="back-btn">← Zurück zur Startseite</a>
-            </center>
+<div class="menu-item">
+                <div class="item-details">
+                    <h3>Gyros Teller</h3>
+                    <p>Gyros, Pommes, Zwiebeln , Krautsalat & Tzatziki</p>
+                </div>
+                <div class="item-price">10,50 €</div>
+            </div>
+            
+                  <!-- KATEGORIE 5 -->
+            <div class="category-title">Schnitzelgerichte</div>
 
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Schweineschnitzel</h3>
+                    <p>Schnitzel Paniert</p>
+                </div>
+                <div class="item-price">5,50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Schnitzel Jägerart</h3>
+                    <p>Schweineschnitzel in Jägersauce</p>
+                </div>
+                <div class="item-price">6,50 €</div>
+            </div>
+<div class="menu-item">
+                <div class="item-details">
+                    <h3>Schnitzel Paprika Art</h3>
+                    <p>Schweineschnitzel in Paprikasauce</p>
+                </div>
+                <div class="item-price">6,50 €</div>
+            </div>
+              <!-- KATEGORIE 6 -->
+            <div class="category-title">Marias Spezial´s</div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Cevapcici</h3>
+                    <p>Cevapcici, Pommes, Cola</p>
+                </div>
+                <div class="item-price">10,00 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>Hänchen vom Grill</h3>
+                    <p>Hänchenteil vom Grill, Pommes, Cola</p>
+                </div>
+                <div class="item-price">10,00 €</div>
+            </div>
+<div class="menu-item">
+                <div class="item-details">
+                    <h3>Schwein vom Grill </h3>
+                    <p>Schweinefleisch vom Grill, Pommes, Cola</p>
+                </div>
+                <div class="item-price">10,00 €</div>
+            </div>
+           <div class="menu-item">
+                <div class="item-details">
+                    <h3>Schweinefleisch vom Grill im Brötchen</h3>
+                    <p>Schweinefleisch im Brötchen</p>
+                </div>
+                <div class="item-price">6,00 €</div>
+            </div>
+           
+            <!-- EXTRA BOX FÜR ALLERGENE & ZUSATZSTOFFE -->
+<div class="info-box">
+    <h4>Allergene & Zusatzstoffe</h4>
+    
+    <div class="info-section">
+        <span class="info-title">Allergene:</span>
+        [A] Glutenhaltiges Getreide &nbsp;|&nbsp; [B] Krebstiere &nbsp;|&nbsp; [C] Eier &nbsp;|&nbsp; [D] Fisch &nbsp;|&nbsp; [E] Erdnüsse &nbsp;|&nbsp; [F] Soja &nbsp;|&nbsp; [G] Milch &nbsp;|&nbsp; [H] Schalenfrüchte &nbsp;|&nbsp; [I] Sellerie &nbsp;|&nbsp; [J] Senf &nbsp;|&nbsp; [K] Sesamsamen &nbsp;|&nbsp; [L] Schwefeldioxid und Sulfite &nbsp;|&nbsp; [M] Lupinen &nbsp;|&nbsp; [N] Weichtiere
+
+    </div>
+    
+    <div class="info-section">
+        <span class="info-title">Zusatzstoffe:</span>
+        [1] mit Farbstoff &nbsp;|&nbsp; [2] mit Konservierungsstoff &nbsp;|&nbsp; [3] mit Antioxidationsmittel &nbsp;|&nbsp; [4] mit Phosphat
+    </div>
+</div>
+       <div class="button-group">
+    <a href="index.html" class="back-btn">Zurück</a>
+    <a href="kontakt.html" class="contact-btn">Kontakt</a>
+</div>     
+<a href="kontakt.html" class="contact-btn">Kontakt</a>
         </div>
     </div>
 
